@@ -129,8 +129,8 @@ instruction         :   'ret' typedValue
                     |   'and' type value ',' value
                     |   'or' type value ',' value
                     |   'xor' type value ',' value
-                    |   'icmp' IntPredicate type value ',' value
-                    |   'fcmp' FastMathsFlag* FPPredicate type value ',' value
+                    |   'icmp' intPredicate type value ',' value
+                    |   'fcmp' FastMathsFlag* fpPredicate type value ',' value
                     |   'trunc' typedValue 'to' type
                     |   'zext' typedValue 'to' type
                     |   'sext' typedValue 'to' type
@@ -157,6 +157,27 @@ instruction         :   'ret' typedValue
                     |   'alloca' 'inalloca'? type (',' typedValue)? (',' 'align' IntegerLiteral)?
                     |   'load' 'volatile'? type ',' typedValue (',' 'align' IntegerLiteral)?
                     |   'load' 'atomic' 'volatile'? type ',' typedValue 'singlethread'? AtomicOrdering  (',' 'align' IntegerLiteral)?
+                    |   'store' 'volatile'? typedValue ',' typedValue (',' 'align' IntegerLiteral)?
+                    |   'store' 'atomic' 'volatile'? typedValue ',' typedValue 'singlethread'? AtomicOrdering  (',' 'align' IntegerLiteral)?
+                    |   'cmpxchg' 'weak'? 'volatile'? typedValue ',' typedValue ',' typedValue 'singlethread'? AtomicOrdering AtomicOrdering
+                    |   'atomicrmw' 'volatile'? operation typedValue ',' typedValue 'singlethread'? AtomicOrdering
+                    |   'fence' 'singlethread'? AtomicOrdering
+                    |   'getelementptr' 'inbounds'? type ',' typedValue (',' typedValue)*
+                    |   'extractvalue' typedValue (',' index)+
+                    |   'insertvalue' typedValue ',' typedValue(',' index)+
+                    ;
+
+operation           :   'xchg'
+                    |   'add'
+                    |   'sub'
+                    |   'and'
+                    |   'nand'
+                    |   'or'
+                    |   'xor'
+                    |   'max'
+                    |   'min'
+                    |   'umax'
+                    |   'umin'
                     ;
 
 operandBundle       :   String '(' typedValue (',' typedValue) * ')';
@@ -254,10 +275,9 @@ value               :   GlobalIdentifier
                     |   'fptoui' '(' typedValue 'to' type ')'
                     |   'inttoptr' '(' typedValue 'to' type ')'
                     |   'ptrtoint' '(' typedValue 'to' type ')'
-                    |   'extractvalue' '(' typedValue (',' index )+ ')'
                     |   'insertvalue' '(' value ',' value (',' index )+ ')'
-                    |   'icmp' FPPredicate '(' typedValue ',' typedValue ')'
-                    |   'fcmp' FPPredicate '(' typedValue ',' typedValue ')'
+                    |   'icmp' intPredicate '(' typedValue ',' typedValue ')'
+                    |   'fcmp' fpPredicate '(' typedValue ',' typedValue ')'
                     |   'add' '(' typedValue ',' typedValue  ')'
                     |   'fadd' '(' typedValue ',' typedValue  ')'
                     |   'sub' '(' typedValue ',' typedValue  ')'
@@ -359,7 +379,7 @@ ThreadLocal         :   'localdynamic'
                     |   'localexec'
                     ;
 
-FPPredicate         :   'oeq'
+fpPredicate         :   'oeq'
                     |   'one'
                     |   'olt'
                     |   'ogt'
@@ -377,7 +397,7 @@ FPPredicate         :   'oeq'
                     |   'false'     //todo review clash with value
                     ;
 
-IntPredicate        :   'eq'
+intPredicate        :   'eq'
                     |   'ne'
                     |   'ugt'
                     |   'uge'
