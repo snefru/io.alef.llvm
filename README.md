@@ -2,7 +2,7 @@
 
 ##Overview
 
-[LLVM Railroad Diagram](./grammar.xhtml)
+[LLVM Railroad Diagram](./site/index.html)
 
 ##References
 

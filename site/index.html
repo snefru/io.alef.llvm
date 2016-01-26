@@ -1,0 +1,1823 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="generator" content="Railroad Diagram Generator 1.42.1156"><style type="text/css" xml:space="preserve">
+    ::-moz-selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }
+    ::selection
+    {
+      color: #FFFCF0;
+      background: #0F0C00;
+    }      
+    .ebnf a
+    {
+      text-decoration: none;
+    }
+    .ebnf a:hover
+    {
+      color: #050400;
+      text-decoration: underline;
+    }    
+    .signature
+    {
+      color: #806600;
+      font-size: 11px;
+      text-align: right;
+    }
+    body
+    {
+      font: normal 12px Verdana, sans-serif;
+      color: #0F0C00;
+      background: #FFFCF0;
+    }
+    a:link, a:visited
+    {
+      color: #0F0C00;
+    }
+    a:link.signature, a:visited.signature
+    {
+      color: #806600;
+    }
+    a.button, #tabs li a
+    {
+      padding: 0.25em 0.5em;
+      border: 1px solid #806600;
+      background: #F1E8C6;
+      color: #806600;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.button:hover, #tabs li a:hover
+    {
+      color: #050400;
+      background: #FFF6D1;
+      border-color: #050400;       
+    }     
+    #tabs
+    {
+      padding: 3px 10px;
+      margin-left: 0;
+      margin-top: 58px;
+      border-bottom: 1px solid #0F0C00;
+    }  
+    #tabs li
+    {
+      list-style: none;
+      margin-left: 5px;
+      display: inline;
+    }
+    #tabs li a
+    {     
+      border-bottom: 1px solid #0F0C00;
+    }
+    #tabs li a.active
+    {
+      color: #0F0C00;
+      background: #FFFCF0;
+      border-color: #0F0C00;
+      border-bottom: 1px solid #FFFCF0;
+      outline: none;
+    }
+    #divs div
+    {
+      display: none;
+      overflow:auto;
+    }
+    #divs div.active
+    {
+      display: block;
+    }
+    #text
+    {
+      border-color: #806600;
+      background: #FFFEFA;
+      color: #050400;
+    }
+    .small
+    {
+      vertical-align: top;
+      text-align: right;
+      font-size: 9px;
+      font-weight: normal;
+      line-height: 120%;
+    }
+    td.small
+    {
+      padding-top: 0px;
+    }
+    .hidden
+    {
+      visibility: hidden;
+    }
+    td:hover .hidden 
+    {
+      visibility: visible;
+    }
+    div.download
+    {
+      display: none;
+      background: #FFFCF0;
+      position: absolute;
+      right: 34px;
+      top: 94px;
+      padding: 10px;
+      border: 1px dotted #0F0C00;
+    }
+    #divs div.ebnf, div.ebnf
+    {
+      display: block;
+      padding-left: 16px;
+      padding-top: 2px; 
+      padding-bottom: 2px; 
+      background: #FFF6D1;
+    }
+    table.palette
+    {
+      border-top: 1px solid #050400;
+      border-right: 1px solid #050400;
+      margin-bottom: 4px
+    }
+    td.palette
+    {
+      border-bottom: 1px solid #050400;
+      border-left: 1px solid #050400;
+    }
+    a.palette
+    {
+      padding: 2px 3px 2px 10px;
+      text-decoration: none;
+    }
+    .palette
+    {
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      -ms-user-select: none;
+    }
+  </style></head>
+   <body>
+      
+      <p style="font-size: 14px; font-weight:bold"><a name="module">module:</a></p>
+      <img border="0" src="diagram/module.png" height="52" width="154" usemap="#module.map"><map name="module.map">
+         <area shape="rect" coords="49,17,105,49" href="#entity" title="entity"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#module" title="module" shape="rect">module</a>   ::= <a href="#entity" title="entity" shape="rect">entity</a>+</pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="AtomicOrdering">AtomicOrdering:</a></p>
+      <img border="0" src="diagram/AtomicOrdering.png" height="256" width="186">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a>
+         ::= 'unordered'
+           | 'monotonic'
+           | 'acquire'
+           | 'release'
+           | 'acq_rel'
+           | 'seq_cst'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="argumentList">argumentList:</a></p>
+      <img border="0" src="diagram/argumentList.png" height="80" width="188" usemap="#argumentList.map"><map name="argumentList.map">
+         <area shape="rect" coords="49,45,139,77" href="#typedValue" title="typedValue"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#argumentList" title="argumentList" shape="rect">argumentList</a>
+         ::= <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )*</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="basicBlock">basicBlock:</a></p>
+      <img border="0" src="diagram/basicBlock.png" height="84" width="296" usemap="#basicBlock.map"><map name="basicBlock.map">
+         <area shape="rect" coords="49,49,103,81" href="#Label" title="Label">
+         <area shape="rect" coords="163,17,247,49" href="#statement" title="statement"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#basicBlock" title="basicBlock" shape="rect">basicBlock</a>
+         ::= <a href="#Label" title="Label" shape="rect">Label</a>? <a href="#statement" title="statement" shape="rect">statement</a>+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionBody" title="functionBody">functionBody</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="clause">clause:</a></p>
+      <img border="0" src="diagram/clause.png" height="80" width="262" usemap="#clause.map"><map name="clause.map">
+         <area shape="rect" coords="123,1,213,33" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="121,45,211,77" href="#typedValue" title="typedValue"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#clause" title="clause" shape="rect">clause</a>   ::= 'catch' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'filter' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="comdat">comdat:</a></p>
+      <img border="0" src="diagram/comdat.png" height="68" width="448" usemap="#comdat.map"><map name="comdat.map">
+         <area shape="rect" coords="227,33,353,65" href="#ComdatIdentifier" title="ComdatIdentifier"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#comdat" title="comdat" shape="rect">comdat</a>   ::= ',' 'comdat' ( '(' <a href="#ComdatIdentifier" title="ComdatIdentifier" shape="rect">ComdatIdentifier</a> ')' )?</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="entity">entity:</a></p>
+      <img border="0" src="diagram/entity.png" height="80" width="414" usemap="#entity.map"><map name="entity.map">
+         <area shape="rect" coords="129,1,245,33" href="#functionHeader" title="functionHeader">
+         <area shape="rect" coords="265,1,365,33" href="#functionBody" title="functionBody">
+         <area shape="rect" coords="137,45,253,77" href="#functionHeader" title="functionHeader"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#entity" title="entity" shape="rect">entity</a>   ::= 'define' <a href="#functionHeader" title="functionHeader" shape="rect">functionHeader</a> <a href="#functionBody" title="functionBody" shape="rect">functionBody</a>
+           | 'declare' <a href="#functionHeader" title="functionHeader" shape="rect">functionHeader</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#module" title="module">module</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="functionAttribute">functionAttribute:</a></p>
+      <img border="0" src="diagram/functionAttribute.png" height="1808" width="544" usemap="#functionAttribute.map"><map name="functionAttribute.map">
+         <area shape="rect" coords="49,35,175,67" href="#AttributeGroupID" title="AttributeGroupID">
+         <area shape="rect" coords="283,1,407,33" href="#functionAttribute" title="functionAttribute">
+         <area shape="rect" coords="155,101,261,133" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="205,145,311,177" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="121,189,227,221" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="171,233,277,265" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="49,1773,105,1805" href="#String" title="String"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#functionAttribute" title="functionAttribute" shape="rect">functionAttribute</a>
+         ::= <a href="#AttributeGroupID" title="AttributeGroupID" shape="rect">AttributeGroupID</a> ( '{' <a href="#functionAttribute" title="functionAttribute" shape="rect">functionAttribute</a>* '}' )?
+           | 'alignstack' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'alignstack' '=' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'align' '=' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'alwaysinline'
+           | 'builtin'
+           | 'cold'
+           | 'convergent'
+           | 'inaccessiblememonly'
+           | 'inaccessiblemem_or_argmemonly'
+           | 'inlinehint'
+           | 'jumptable'
+           | 'minsize'
+           | 'naked'
+           | 'nobuiltin'
+           | 'noduplicate'
+           | 'noimplicitfloat'
+           | 'noinline'
+           | 'nonlazybind'
+           | 'noredzone'
+           | 'noreturn'
+           | 'norecurse'
+           | 'nounwind'
+           | 'optnone'
+           | 'optsize'
+           | 'readnone'
+           | 'readonly'
+           | 'argmemonly'
+           | 'returns_twice'
+           | 'ssp'
+           | 'sspreq'
+           | 'sspstrong'
+           | 'safestack'
+           | 'sanitize_address'
+           | 'sanitize_thread'
+           | 'sanitize_memory'
+           | 'uwtable'
+           | 'thunk'
+           | <a href="#String" title="String" shape="rect">String</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionAttribute" title="functionAttribute">functionAttribute</a></li>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="functionHeader">functionHeader:</a></p>
+      <img border="0" src="diagram/functionHeader.png" height="320" width="912" usemap="#functionHeader.map"><map name="functionHeader.map">
+         <area shape="rect" coords="49,67,117,99" href="#Linkage" title="Linkage">
+         <area shape="rect" coords="177,67,247,99" href="#Visibility" title="Visibility">
+         <area shape="rect" coords="307,67,425,99" href="#DllStorageClass" title="DllStorageClass">
+         <area shape="rect" coords="485,67,619,99" href="#CallingConvention" title="CallingConvention">
+         <area shape="rect" coords="679,1,793,33" href="#returnAttribute" title="returnAttribute">
+         <area shape="rect" coords="833,35,881,67" href="#type" title="type">
+         <area shape="rect" coords="23,167,139,199" href="#GlobalIdentifier" title="GlobalIdentifier">
+         <area shape="rect" coords="225,199,333,231" href="#parameterList" title="parameterList">
+         <area shape="rect" coords="439,199,561,231" href="#UnamedAddress" title="UnamedAddress">
+         <area shape="rect" coords="621,133,745,165" href="#functionAttribute" title="functionAttribute">
+         <area shape="rect" coords="805,199,869,231" href="#section" title="section">
+         <area shape="rect" coords="797,285,863,317" href="#comdat" title="comdat"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#functionHeader" title="functionHeader" shape="rect">functionHeader</a>
+         ::= <a href="#Linkage" title="Linkage" shape="rect">Linkage</a>? <a href="#Visibility" title="Visibility" shape="rect">Visibility</a>? <a href="#DllStorageClass" title="DllStorageClass" shape="rect">DllStorageClass</a>? <a href="#CallingConvention" title="CallingConvention" shape="rect">CallingConvention</a>? <a href="#returnAttribute" title="returnAttribute" shape="rect">returnAttribute</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#GlobalIdentifier" title="GlobalIdentifier" shape="rect">GlobalIdentifier</a> '(' <a href="#parameterList" title="parameterList" shape="rect">parameterList</a>? ')' <a href="#UnamedAddress" title="UnamedAddress" shape="rect">UnamedAddress</a>? <a href="#functionAttribute" title="functionAttribute" shape="rect">functionAttribute</a>* <a href="#section" title="section" shape="rect">section</a>? <a href="#comdat" title="comdat" shape="rect">comdat</a>?</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#entity" title="entity">entity</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="functionBody">functionBody:</a></p>
+      <img border="0" src="diagram/functionBody.png" height="52" width="278" usemap="#functionBody.map"><map name="functionBody.map">
+         <area shape="rect" coords="97,17,181,49" href="#basicBlock" title="basicBlock"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#functionBody" title="functionBody" shape="rect">functionBody</a>
+         ::= '{' <a href="#basicBlock" title="basicBlock" shape="rect">basicBlock</a>+ '}'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#entity" title="entity">entity</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="instruction">instruction:</a></p>
+      <img border="0" src="diagram/instruction.png" height="4480" width="1840" usemap="#instruction.map"><map name="instruction.map">
+         <area shape="rect" coords="107,1,197,33" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="103,89,193,121" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="103,133,193,165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="257,133,347,165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="411,133,501,165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="131,199,221,231" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="285,199,375,231" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="481,199,571,231" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="635,199,725,231" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="153,309,243,341" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="373,309,463,341" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="153,429,287,461" href="#CallingConvention" title="CallingConvention">
+         <area shape="rect" coords="347,363,461,395" href="#returnAttribute" title="returnAttribute">
+         <area shape="rect" coords="501,397,549,429" href="#type" title="type">
+         <area shape="rect" coords="569,397,685,429" href="#GlobalIdentifier" title="GlobalIdentifier">
+         <area shape="rect" coords="771,429,873,461" href="#argumentList" title="argumentList">
+         <area shape="rect" coords="979,363,1103,395" href="#functionAttribute" title="functionAttribute">
+         <area shape="rect" coords="1229,397,1345,429" href="#operandBundle" title="operandBundle">
+         <area shape="rect" coords="1503,397,1593,429" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="1701,397,1791,429" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="137,473,227,505" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="229,517,283,549" href="#value" title="value">
+         <area shape="rect" coords="229,561,283,593" href="#value" title="value">
+         <area shape="rect" coords="391,561,481,593" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="213,605,267,637" href="#value" title="value">
+         <area shape="rect" coords="339,605,429,637" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="247,693,301,725" href="#value" title="value">
+         <area shape="rect" coords="387,693,477,725" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="247,781,301,813" href="#value" title="value">
+         <area shape="rect" coords="387,781,477,813" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="651,781,741,813" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="227,869,281,901" href="#value" title="value">
+         <area shape="rect" coords="387,869,477,901" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="243,979,297,1011" href="#value" title="value">
+         <area shape="rect" coords="403,979,493,1011" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="327,1045,375,1077" href="#type" title="type">
+         <area shape="rect" coords="395,1045,449,1077" href="#value" title="value">
+         <area shape="rect" coords="513,1045,567,1077" href="#value" title="value">
+         <area shape="rect" coords="325,1121,373,1153" href="#type" title="type">
+         <area shape="rect" coords="393,1121,447,1153" href="#value" title="value">
+         <area shape="rect" coords="511,1121,565,1153" href="#value" title="value">
+         <area shape="rect" coords="327,1197,375,1229" href="#type" title="type">
+         <area shape="rect" coords="395,1197,449,1229" href="#value" title="value">
+         <area shape="rect" coords="513,1197,567,1229" href="#value" title="value">
+         <area shape="rect" coords="321,1273,369,1305" href="#type" title="type">
+         <area shape="rect" coords="389,1273,443,1305" href="#value" title="value">
+         <area shape="rect" coords="507,1273,561,1305" href="#value" title="value">
+         <area shape="rect" coords="137,1349,247,1381" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="287,1383,335,1415" href="#type" title="type">
+         <area shape="rect" coords="355,1383,409,1415" href="#value" title="value">
+         <area shape="rect" coords="473,1383,527,1415" href="#value" title="value">
+         <area shape="rect" coords="137,1427,247,1459" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="287,1461,335,1493" href="#type" title="type">
+         <area shape="rect" coords="355,1461,409,1493" href="#value" title="value">
+         <area shape="rect" coords="473,1461,527,1493" href="#value" title="value">
+         <area shape="rect" coords="137,1505,247,1537" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="287,1539,335,1571" href="#type" title="type">
+         <area shape="rect" coords="355,1539,409,1571" href="#value" title="value">
+         <area shape="rect" coords="473,1539,527,1571" href="#value" title="value">
+         <area shape="rect" coords="133,1583,243,1615" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="283,1617,331,1649" href="#type" title="type">
+         <area shape="rect" coords="351,1617,405,1649" href="#value" title="value">
+         <area shape="rect" coords="469,1617,523,1649" href="#value" title="value">
+         <area shape="rect" coords="139,1661,249,1693" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="289,1695,337,1727" href="#type" title="type">
+         <area shape="rect" coords="357,1695,411,1727" href="#value" title="value">
+         <area shape="rect" coords="475,1695,529,1727" href="#value" title="value">
+         <area shape="rect" coords="231,1739,279,1771" href="#type" title="type">
+         <area shape="rect" coords="299,1739,353,1771" href="#value" title="value">
+         <area shape="rect" coords="417,1739,471,1771" href="#value" title="value">
+         <area shape="rect" coords="233,1815,281,1847" href="#type" title="type">
+         <area shape="rect" coords="301,1815,355,1847" href="#value" title="value">
+         <area shape="rect" coords="419,1815,473,1847" href="#value" title="value">
+         <area shape="rect" coords="229,1891,277,1923" href="#type" title="type">
+         <area shape="rect" coords="297,1891,351,1923" href="#value" title="value">
+         <area shape="rect" coords="415,1891,469,1923" href="#value" title="value">
+         <area shape="rect" coords="233,1967,281,1999" href="#type" title="type">
+         <area shape="rect" coords="301,1967,355,1999" href="#value" title="value">
+         <area shape="rect" coords="419,1967,473,1999" href="#value" title="value">
+         <area shape="rect" coords="123,2043,171,2075" href="#type" title="type">
+         <area shape="rect" coords="191,2043,245,2075" href="#value" title="value">
+         <area shape="rect" coords="309,2043,363,2075" href="#value" title="value">
+         <area shape="rect" coords="121,2087,169,2119" href="#type" title="type">
+         <area shape="rect" coords="189,2087,243,2119" href="#value" title="value">
+         <area shape="rect" coords="307,2087,361,2119" href="#value" title="value">
+         <area shape="rect" coords="113,2131,161,2163" href="#type" title="type">
+         <area shape="rect" coords="181,2131,235,2163" href="#value" title="value">
+         <area shape="rect" coords="299,2131,353,2163" href="#value" title="value">
+         <area shape="rect" coords="103,2175,151,2207" href="#type" title="type">
+         <area shape="rect" coords="171,2175,225,2207" href="#value" title="value">
+         <area shape="rect" coords="289,2175,343,2207" href="#value" title="value">
+         <area shape="rect" coords="111,2219,159,2251" href="#type" title="type">
+         <area shape="rect" coords="179,2219,233,2251" href="#value" title="value">
+         <area shape="rect" coords="297,2219,351,2251" href="#value" title="value">
+         <area shape="rect" coords="119,2263,213,2295" href="#intPredicate" title="intPredicate">
+         <area shape="rect" coords="233,2263,281,2295" href="#type" title="type">
+         <area shape="rect" coords="301,2263,355,2295" href="#value" title="value">
+         <area shape="rect" coords="419,2263,473,2295" href="#value" title="value">
+         <area shape="rect" coords="141,2307,251,2339" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="291,2341,381,2373" href="#fpPredicate" title="fpPredicate">
+         <area shape="rect" coords="401,2341,449,2373" href="#type" title="type">
+         <area shape="rect" coords="469,2341,523,2373" href="#value" title="value">
+         <area shape="rect" coords="587,2341,641,2373" href="#value" title="value">
+         <area shape="rect" coords="123,2385,213,2417" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="285,2385,333,2417" href="#type" title="type">
+         <area shape="rect" coords="117,2429,207,2461" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="279,2429,327,2461" href="#type" title="type">
+         <area shape="rect" coords="117,2473,207,2505" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="279,2473,327,2505" href="#type" title="type">
+         <area shape="rect" coords="117,2517,207,2549" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="279,2517,327,2549" href="#type" title="type">
+         <area shape="rect" coords="135,2561,225,2593" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="297,2561,345,2593" href="#type" title="type">
+         <area shape="rect" coords="123,2605,213,2637" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="285,2605,333,2637" href="#type" title="type">
+         <area shape="rect" coords="133,2649,223,2681" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="295,2649,343,2681" href="#type" title="type">
+         <area shape="rect" coords="183,2693,273,2725" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="345,2693,393,2725" href="#type" title="type">
+         <area shape="rect" coords="127,2737,217,2769" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="289,2737,337,2769" href="#type" title="type">
+         <area shape="rect" coords="125,2781,215,2813" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="287,2781,335,2813" href="#type" title="type">
+         <area shape="rect" coords="127,2825,217,2857" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="289,2825,337,2857" href="#type" title="type">
+         <area shape="rect" coords="125,2869,215,2901" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="287,2869,335,2901" href="#type" title="type">
+         <area shape="rect" coords="137,2913,227,2945" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="299,2913,347,2945" href="#type" title="type">
+         <area shape="rect" coords="137,2957,227,2989" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="299,2957,347,2989" href="#type" title="type">
+         <area shape="rect" coords="127,3001,217,3033" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="281,3001,371,3033" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="435,3001,525,3033" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="135,3045,225,3077" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="289,3045,337,3077" href="#type" title="type">
+         <area shape="rect" coords="189,3089,279,3121" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="343,3089,433,3121" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="179,3133,269,3165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="333,3133,423,3165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="487,3133,577,3165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="175,3177,265,3209" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="329,3177,419,3209" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="483,3177,573,3209" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="109,3265,157,3297" href="#type" title="type">
+         <area shape="rect" coords="243,3265,297,3297" href="#value" title="value">
+         <area shape="rect" coords="361,3265,415,3297" href="#value" title="value">
+         <area shape="rect" coords="161,3343,209,3375" href="#type" title="type">
+         <area shape="rect" coords="339,3309,399,3341" href="#clause" title="clause">
+         <area shape="rect" coords="161,3409,209,3441" href="#type" title="type">
+         <area shape="rect" coords="249,3409,309,3441" href="#clause" title="clause">
+         <area shape="rect" coords="263,3453,373,3485" href="#FastMathsFlag" title="FastMathsFlag">
+         <area shape="rect" coords="433,3519,567,3551" href="#CallingConvention" title="CallingConvention">
+         <area shape="rect" coords="627,3453,741,3485" href="#returnAttribute" title="returnAttribute">
+         <area shape="rect" coords="781,3487,829,3519" href="#type" title="type">
+         <area shape="rect" coords="849,3487,903,3519" href="#value" title="value">
+         <area shape="rect" coords="989,3519,1091,3551" href="#argumentList" title="argumentList">
+         <area shape="rect" coords="1197,3453,1321,3485" href="#functionAttribute" title="functionAttribute">
+         <area shape="rect" coords="1381,3453,1497,3485" href="#operandBundle" title="operandBundle">
+         <area shape="rect" coords="257,3651,305,3683" href="#type" title="type">
+         <area shape="rect" coords="389,3683,479,3715" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="655,3683,761,3715" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="245,3727,293,3759" href="#type" title="type">
+         <area shape="rect" coords="357,3727,447,3759" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="603,3759,709,3791" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="329,3803,377,3835" href="#type" title="type">
+         <area shape="rect" coords="441,3803,531,3835" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="713,3803,829,3835" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="985,3835,1091,3867" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="251,3879,341,3911" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="405,3879,495,3911" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="651,3911,757,3943" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="335,3955,425,3987" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="489,3955,579,3987" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="761,3955,877,3987" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="1033,3987,1139,4019" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="391,4031,481,4063" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="545,4031,635,4063" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="699,4031,789,4063" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="971,4031,1087,4063" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="1107,4031,1223,4063" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="291,4107,371,4139" href="#operation" title="operation">
+         <area shape="rect" coords="391,4107,481,4139" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="545,4107,635,4139" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="817,4107,933,4139" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="287,4183,403,4215" href="#AtomicOrdering" title="AtomicOrdering">
+         <area shape="rect" coords="319,4281,367,4313" href="#type" title="type">
+         <area shape="rect" coords="451,4281,541,4313" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="171,4379,261,4411" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="345,4379,399,4411" href="#index" title="index">
+         <area shape="rect" coords="163,4445,253,4477" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,4445,407,4477" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="491,4445,545,4477" href="#index" title="index"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#instruction" title="instruction" shape="rect">instruction</a>
+         ::= 'ret' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'ret' 'void'
+           | 'br' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'br' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'switch' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> '[' ( <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ']'
+           | 'indirectbr' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' '[' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ']'
+           | 'invoke' <a href="#CallingConvention" title="CallingConvention" shape="rect">CallingConvention</a>? <a href="#returnAttribute" title="returnAttribute" shape="rect">returnAttribute</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#GlobalIdentifier" title="GlobalIdentifier" shape="rect">GlobalIdentifier</a> '(' <a href="#argumentList" title="argumentList" shape="rect">argumentList</a>? ')' <a href="#functionAttribute" title="functionAttribute" shape="rect">functionAttribute</a>* ( '[' <a href="#operandBundle" title="operandBundle" shape="rect">operandBundle</a> ( ',' <a href="#operandBundle" title="operandBundle" shape="rect">operandBundle</a> )* ']' )? 'to' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'unwind' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'resume' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'cleanupret' 'from' <a href="#value" title="value" shape="rect">value</a> 'unwind' 'to' 'caller'
+           | 'cleanupret' 'from' <a href="#value" title="value" shape="rect">value</a> 'unwind' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'catchret' 'from' <a href="#value" title="value" shape="rect">value</a> 'to' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'catchswitch' 'within' <a href="#value" title="value" shape="rect">value</a> '[' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ']' 'unwind' 'to' 'caller'
+           | 'catchswitch' 'within' <a href="#value" title="value" shape="rect">value</a> '[' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ']' 'unwind' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'catchpad' 'within' <a href="#value" title="value" shape="rect">value</a> '[' ( <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* )? ']'
+           | 'cleanuppad' 'within' <a href="#value" title="value" shape="rect">value</a> '[' ( <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* )? ']'
+           | 'add' 'nuw'? 'nsw'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'sub' 'nuw'? 'nsw'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'mul' 'nuw'? 'nsw'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'shl' 'nuw'? 'nsw'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'fadd' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'fsub' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'fmul' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'fdiv' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'frem' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'sdiv' 'exact'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'udiv' 'exact'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'lshr' 'exact'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'ashr' 'exact'? <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'urem' <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'srem' <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'and' <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'or' <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'xor' <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'icmp' <a href="#intPredicate" title="intPredicate" shape="rect">intPredicate</a> <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'fcmp' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#fpPredicate" title="fpPredicate" shape="rect">fpPredicate</a> <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a>
+           | 'trunc' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'zext' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'sext' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'sext' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'fptrunc' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'fpext' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'bitcast' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'addrspacecast' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'uitofp' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'sitofp' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'fptoui' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'fptosi' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'inttoptr' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'ptrtoint' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a>
+           | 'select' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'va_arg' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#type" title="type" shape="rect">type</a>
+           | 'extractelement' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'insertelement' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'shufflevector' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+           | 'phi' <a href="#type" title="type" shape="rect">type</a> '[' <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a> ']' ( ',' '[' <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a> ']' )*
+           | 'landingpad' <a href="#type" title="type" shape="rect">type</a> 'cleanup' <a href="#clause" title="clause" shape="rect">clause</a>*
+           | 'landingpad' <a href="#type" title="type" shape="rect">type</a> <a href="#clause" title="clause" shape="rect">clause</a>+
+           | ( 'tail' | 'musttail' | 'notail' )? 'call' <a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>* <a href="#CallingConvention" title="CallingConvention" shape="rect">CallingConvention</a>? <a href="#returnAttribute" title="returnAttribute" shape="rect">returnAttribute</a>* <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a> '(' <a href="#argumentList" title="argumentList" shape="rect">argumentList</a>? ')' <a href="#functionAttribute" title="functionAttribute" shape="rect">functionAttribute</a>* <a href="#operandBundle" title="operandBundle" shape="rect">operandBundle</a>*
+           | 'alloca' 'inalloca'? <a href="#type" title="type" shape="rect">type</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )? ( ',' 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> )?
+           | 'load' 'volatile'? <a href="#type" title="type" shape="rect">type</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> )?
+           | 'load' 'atomic' 'volatile'? <a href="#type" title="type" shape="rect">type</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'singlethread'? <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a> ( ',' 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> )?
+           | 'store' 'volatile'? <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> )?
+           | 'store' 'atomic' 'volatile'? <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'singlethread'? <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a> ( ',' 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> )?
+           | 'cmpxchg' 'weak'? 'volatile'? <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'singlethread'? <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a> <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a>
+           | 'atomicrmw' 'volatile'? <a href="#operation" title="operation" shape="rect">operation</a> <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'singlethread'? <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a>
+           | 'fence' 'singlethread'? <a href="#AtomicOrdering" title="AtomicOrdering" shape="rect">AtomicOrdering</a>
+           | 'getelementptr' 'inbounds'? <a href="#type" title="type" shape="rect">type</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )*
+           | 'extractvalue' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#index" title="index" shape="rect">index</a> )+
+           | 'insertvalue' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#index" title="index" shape="rect">index</a> )+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#statement" title="statement">statement</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="operation">operation:</a></p>
+      <img border="0" src="diagram/operation.png" height="476" width="154">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#operation" title="operation" shape="rect">operation</a>
+         ::= 'xchg'
+           | 'add'
+           | 'sub'
+           | 'and'
+           | 'nand'
+           | 'or'
+           | 'xor'
+           | 'max'
+           | 'min'
+           | 'umax'
+           | 'umin'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="operandBundle">operandBundle:</a></p>
+      <img border="0" src="diagram/operandBundle.png" height="80" width="356" usemap="#operandBundle.map"><map name="operandBundle.map">
+         <area shape="rect" coords="29,45,85,77" href="#String" title="String">
+         <area shape="rect" coords="171,45,261,77" href="#typedValue" title="typedValue"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#operandBundle" title="operandBundle" shape="rect">operandBundle</a>
+         ::= <a href="#String" title="String" shape="rect">String</a> '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ')'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="parameter">parameter:</a></p>
+      <img border="0" src="diagram/parameter.png" height="146" width="514" usemap="#parameter.map"><map name="parameter.map">
+         <area shape="rect" coords="49,35,97,67" href="#type" title="type">
+         <area shape="rect" coords="137,1,277,33" href="#parameterAttribute" title="parameterAttribute">
+         <area shape="rect" coords="337,67,445,99" href="#LocalIdentifier" title="LocalIdentifier"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#parameter" title="parameter" shape="rect">parameter</a>
+         ::= <a href="#type" title="type" shape="rect">type</a> <a href="#parameterAttribute" title="parameterAttribute" shape="rect">parameterAttribute</a>* <a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a>?
+           | '...'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#parameterList" title="parameterList">parameterList</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="parameterAttribute">parameterAttribute:</a></p>
+      <img border="0" src="diagram/parameterAttribute.png" height="740" width="500" usemap="#parameterAttribute.map"><map name="parameterAttribute.map">
+         <area shape="rect" coords="121,1,227,33" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="243,89,349,121" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="299,133,405,165" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="49,705,105,737" href="#String" title="String"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#parameterAttribute" title="parameterAttribute" shape="rect">parameterAttribute</a>
+         ::= 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'byval'
+           | 'dereferenceable' '(' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> ')'
+           | 'dereferenceable_or_null' '(' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> ')'
+           | 'inalloca'
+           | 'inreg'
+           | 'nest'
+           | 'noalias'
+           | 'nocapture'
+           | 'nonnull'
+           | 'readnone'
+           | 'readonly'
+           | 'returned'
+           | 'signext'
+           | 'sret'
+           | 'zeroext'
+           | <a href="#String" title="String" shape="rect">String</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#parameter" title="parameter">parameter</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="parameterList">parameterList:</a></p>
+      <img border="0" src="diagram/parameterList.png" height="80" width="184" usemap="#parameterList.map"><map name="parameterList.map">
+         <area shape="rect" coords="49,45,135,77" href="#parameter" title="parameter"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#parameterList" title="parameterList" shape="rect">parameterList</a>
+         ::= <a href="#parameter" title="parameter" shape="rect">parameter</a> ( ',' <a href="#parameter" title="parameter" shape="rect">parameter</a> )*</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="returnAttribute">returnAttribute:</a></p>
+      <img border="0" src="diagram/returnAttribute.png" height="388" width="500" usemap="#returnAttribute.map"><map name="returnAttribute.map">
+         <area shape="rect" coords="49,1,105,33" href="#String" title="String">
+         <area shape="rect" coords="299,45,405,77" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="243,89,349,121" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="121,133,227,165" href="#IntegerLiteral" title="IntegerLiteral"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#returnAttribute" title="returnAttribute" shape="rect">returnAttribute</a>
+         ::= <a href="#String" title="String" shape="rect">String</a>
+           | 'dereferenceable_or_null' '(' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> ')'
+           | 'dereferenceable' '(' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> ')'
+           | 'align' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | 'inreg'
+           | 'noalias'
+           | 'nonnull'
+           | 'signext'
+           | 'zeroext'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="section">section:</a></p>
+      <img border="0" src="diagram/section.png" height="36" width="244" usemap="#section.map"><map name="section.map">
+         <area shape="rect" coords="159,1,215,33" href="#String" title="String"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#section" title="section" shape="rect">section</a>  ::= ',' 'section' <a href="#String" title="String" shape="rect">String</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="statement">statement:</a></p>
+      <img border="0" src="diagram/statement.png" height="68" width="362" usemap="#statement.map"><map name="statement.map">
+         <area shape="rect" coords="49,33,157,65" href="#LocalIdentifier" title="LocalIdentifier">
+         <area shape="rect" coords="247,1,333,33" href="#instruction" title="instruction"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#statement" title="statement" shape="rect">statement</a>
+         ::= ( <a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a> '=' )? <a href="#instruction" title="instruction" shape="rect">instruction</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#basicBlock" title="basicBlock">basicBlock</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="type">type:</a></p>
+      <img border="0" src="diagram/type.png" height="1036" width="478" usemap="#type.map"><map name="type.map">
+         <area shape="rect" coords="49,1,145,33" href="#IntegerType" title="IntegerType">
+         <area shape="rect" coords="49,353,97,385" href="#type" title="type">
+         <area shape="rect" coords="99,397,205,429" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="273,397,321,429" href="#type" title="type">
+         <area shape="rect" coords="95,573,201,605" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="269,573,317,605" href="#type" title="type">
+         <area shape="rect" coords="117,661,165,693" href="#type" title="type">
+         <area shape="rect" coords="167,749,215,781" href="#type" title="type">
+         <area shape="rect" coords="49,925,97,957" href="#type" title="type">
+         <area shape="rect" coords="203,925,251,957" href="#type" title="type">
+         <area shape="rect" coords="49,1001,157,1033" href="#LocalIdentifier" title="LocalIdentifier"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#type" title="type" shape="rect">type</a>     ::= <a href="#IntegerType" title="IntegerType" shape="rect">IntegerType</a>
+           | 'half'
+           | 'float'
+           | 'double'
+           | 'fp128'
+           | 'x86_fp80'
+           | 'ppc_fp128'
+           | 'x86_mmx'
+           | <a href="#type" title="type" shape="rect">type</a> '*'
+           | '&lt;' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> 'x' <a href="#type" title="type" shape="rect">type</a> '&gt;'
+           | 'label'
+           | 'token'
+           | 'metadata'
+           | '[' <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a> 'x' <a href="#type" title="type" shape="rect">type</a> ']'
+           | '{' <a href="#type" title="type" shape="rect">type</a> ( ',' <a href="#type" title="type" shape="rect">type</a> )* '}'
+           | '&lt;' '{' <a href="#type" title="type" shape="rect">type</a> ( ',' <a href="#type" title="type" shape="rect">type</a> )* '}' '&gt;'
+           | 'opaque'
+           | 'void'
+           | <a href="#type" title="type" shape="rect">type</a> '(' ( <a href="#type" title="type" shape="rect">type</a> ( ',' <a href="#type" title="type" shape="rect">type</a> )* )? '...'? ')'
+           | <a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#parameter" title="parameter">parameter</a></li>
+            
+            <li><a href="#type" title="type">type</a></li>
+            
+            <li><a href="#typedValue" title="typedValue">typedValue</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="typedValue">typedValue:</a></p>
+      <img border="0" src="diagram/typedValue.png" height="36" width="180" usemap="#typedValue.map"><map name="typedValue.map">
+         <area shape="rect" coords="29,1,77,33" href="#type" title="type">
+         <area shape="rect" coords="97,1,151,33" href="#value" title="value"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#typedValue" title="typedValue" shape="rect">typedValue</a>
+         ::= <a href="#type" title="type" shape="rect">type</a> <a href="#value" title="value" shape="rect">value</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#argumentList" title="argumentList">argumentList</a></li>
+            
+            <li><a href="#clause" title="clause">clause</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#operandBundle" title="operandBundle">operandBundle</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="value">value:</a></p>
+      <img border="0" src="diagram/value.png" height="2334" width="782" usemap="#value.map"><map name="value.map">
+         <area shape="rect" coords="49,1,165,33" href="#GlobalIdentifier" title="GlobalIdentifier">
+         <area shape="rect" coords="49,45,157,77" href="#LocalIdentifier" title="LocalIdentifier">
+         <area shape="rect" coords="49,89,139,121" href="#FloatLiteral" title="FloatLiteral">
+         <area shape="rect" coords="49,133,155,165" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="49,177,171,209" href="#CharArrayLiteral" title="CharArrayLiteral">
+         <area shape="rect" coords="117,529,207,561" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="119,617,209,649" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="115,705,205,737" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="557,749,613,781" href="#String" title="String">
+         <area shape="rect" coords="677,749,733,781" href="#String" title="String">
+         <area shape="rect" coords="221,825,337,857" href="#GlobalIdentifier" title="GlobalIdentifier">
+         <area shape="rect" coords="401,825,509,857" href="#LocalIdentifier" title="LocalIdentifier">
+         <area shape="rect" coords="169,869,259,901" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="331,869,379,901" href="#type" title="type">
+         <area shape="rect" coords="163,913,253,945" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="325,913,373,945" href="#type" title="type">
+         <area shape="rect" coords="163,957,253,989" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="325,957,373,989" href="#type" title="type">
+         <area shape="rect" coords="181,1001,271,1033" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="343,1001,391,1033" href="#type" title="type">
+         <area shape="rect" coords="169,1045,259,1077" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="331,1045,379,1077" href="#type" title="type">
+         <area shape="rect" coords="179,1089,269,1121" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="341,1089,389,1121" href="#type" title="type">
+         <area shape="rect" coords="229,1133,319,1165" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="391,1133,439,1165" href="#type" title="type">
+         <area shape="rect" coords="173,1177,263,1209" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="335,1177,383,1209" href="#type" title="type">
+         <area shape="rect" coords="171,1221,261,1253" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="333,1221,381,1253" href="#type" title="type">
+         <area shape="rect" coords="173,1265,263,1297" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="335,1265,383,1297" href="#type" title="type">
+         <area shape="rect" coords="183,1309,273,1341" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="345,1309,393,1341" href="#type" title="type">
+         <area shape="rect" coords="183,1353,273,1385" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="345,1353,393,1385" href="#type" title="type">
+         <area shape="rect" coords="209,1419,263,1451" href="#value" title="value">
+         <area shape="rect" coords="327,1419,381,1451" href="#value" title="value">
+         <area shape="rect" coords="465,1419,519,1451" href="#index" title="index">
+         <area shape="rect" coords="119,1463,213,1495" href="#intPredicate" title="intPredicate">
+         <area shape="rect" coords="279,1463,369,1495" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="433,1463,523,1495" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="121,1507,211,1539" href="#fpPredicate" title="fpPredicate">
+         <area shape="rect" coords="277,1507,367,1539" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="431,1507,521,1539" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="159,1551,249,1583" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="313,1551,403,1583" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="163,1595,253,1627" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,1595,407,1627" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="157,1639,247,1671" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="311,1639,401,1671" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="163,1683,253,1715" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,1683,407,1715" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="159,1727,249,1759" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="313,1727,403,1759" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="163,1771,253,1803" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,1771,407,1803" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="163,1815,253,1847" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,1815,407,1847" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="161,1859,251,1891" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="315,1859,405,1891" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="159,1903,249,1935" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="313,1903,403,1935" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="169,1947,259,1979" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="323,1947,413,1979" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="167,1991,257,2023" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="321,1991,411,2023" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="165,2035,255,2067" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="319,2035,409,2067" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="153,2079,243,2111" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="307,2079,397,2111" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="157,2123,247,2155" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="311,2123,401,2155" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="163,2167,253,2199" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="317,2167,407,2199" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="159,2211,249,2243" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="313,2211,403,2243" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="149,2255,239,2287" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="303,2255,393,2287" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="157,2299,247,2331" href="#typedValue" title="typedValue">
+         <area shape="rect" coords="311,2299,401,2331" href="#typedValue" title="typedValue"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#value" title="value" shape="rect">value</a>    ::= <a href="#GlobalIdentifier" title="GlobalIdentifier" shape="rect">GlobalIdentifier</a>
+           | <a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a>
+           | <a href="#FloatLiteral" title="FloatLiteral" shape="rect">FloatLiteral</a>
+           | <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | <a href="#CharArrayLiteral" title="CharArrayLiteral" shape="rect">CharArrayLiteral</a>
+           | 'true'
+           | 'false'
+           | 'null'
+           | 'undef'
+           | 'zeroinitializer'
+           | 'none'
+           | '{' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* '}'
+           | '&lt;' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* '&gt;'
+           | '[' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ( ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> )* ']'
+           | 'asm' 'sideeffect'? 'alignstack'? 'inteldialect'? <a href="#String" title="String" shape="rect">String</a> ',' <a href="#String" title="String" shape="rect">String</a>
+           | 'blockaddress' '(' <a href="#GlobalIdentifier" title="GlobalIdentifier" shape="rect">GlobalIdentifier</a> ',' <a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a> ')'
+           | 'trunc' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'zext' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'sext' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'fptrunc' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'fpext' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'bitcast' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'addrspacecast' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'uitofp' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'sitofp' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'fptoui' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'inttoptr' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'ptrtoint' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> 'to' <a href="#type" title="type" shape="rect">type</a> ')'
+           | 'insertvalue' '(' <a href="#value" title="value" shape="rect">value</a> ',' <a href="#value" title="value" shape="rect">value</a> ( ',' <a href="#index" title="index" shape="rect">index</a> )+ ')'
+           | 'icmp' <a href="#intPredicate" title="intPredicate" shape="rect">intPredicate</a> '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'fcmp' <a href="#fpPredicate" title="fpPredicate" shape="rect">fpPredicate</a> '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'add' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'fadd' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'sub' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'fsub' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'mul' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'fmul' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'udiv' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'sdiv' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'fdiv' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'urem' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'srem' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'frem' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'shl' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'lshl' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'ashr' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'and' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'or' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'
+           | 'xor' '(' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ',' <a href="#typedValue" title="typedValue" shape="rect">typedValue</a> ')'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#typedValue" title="typedValue">typedValue</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="index">index:</a></p>
+      <img border="0" src="diagram/index.png" height="80" width="234" usemap="#index.map"><map name="index.map">
+         <area shape="rect" coords="49,1,155,33" href="#IntegerLiteral" title="IntegerLiteral">
+         <area shape="rect" coords="49,45,185,77" href="#MetadataIdentifier" title="MetadataIdentifier"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#index" title="index" shape="rect">index</a>    ::= <a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+           | <a href="#MetadataIdentifier" title="MetadataIdentifier" shape="rect">MetadataIdentifier</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="AttributeGroupID">AttributeGroupID:</a></p>
+      <img border="0" src="diagram/AttributeGroupID.png" height="52" width="196" usemap="#AttributeGroupID.map"><map name="AttributeGroupID.map">
+         <area shape="rect" coords="99,17,147,49" href="#Digit" title="Digit"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#AttributeGroupID" title="AttributeGroupID" shape="rect">AttributeGroupID</a>
+         ::= '#' <a href="#Digit" title="Digit" shape="rect">Digit</a>+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionAttribute" title="functionAttribute">functionAttribute</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="UnamedAddress">UnamedAddress:</a></p>
+      <img border="0" src="diagram/UnamedAddress.png" height="36" width="176">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#UnamedAddress" title="UnamedAddress" shape="rect">UnamedAddress</a>
+         ::= 'unnamed_addr'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CallingConvention">CallingConvention:</a></p>
+      <img border="0" src="diagram/CallingConvention.png" height="1246" width="240" usemap="#CallingConvention.map"><map name="CallingConvention.map">
+         <area shape="rect" coords="123,1211,171,1243" href="#Digit" title="Digit"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#CallingConvention" title="CallingConvention" shape="rect">CallingConvention</a>
+         ::= 'ccc'
+           | 'fastcc'
+           | 'coldcc'
+           | 'x86_stdcallcc'
+           | 'x86_fastcallcc'
+           | 'x86_thiscallcc'
+           | 'x86_vectorcallcc'
+           | 'arm_apcscc'
+           | 'arm_aapcscc'
+           | 'arm_aapcs_vfpcc'
+           | 'msp430_intrcc'
+           | 'ptx_kernel'
+           | 'ptx_device'
+           | 'spir_kernel'
+           | 'spir_func'
+           | 'intel_ocl_bicc'
+           | 'x86_64_sysvcc'
+           | 'x86_64_win64cc'
+           | 'webkit_jscc'
+           | 'anyregcc'
+           | 'preserve_mostcc'
+           | 'preserve_allcc'
+           | 'ghccc'
+           | 'x86_intrcc'
+           | 'hhvmcc'
+           | 'hhvm_ccc'
+           | 'cxx_fast_tlscc'
+           | 'cc' <a href="#Digit" title="Digit" shape="rect">Digit</a>+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="IntegerType">IntegerType:</a></p>
+      <img border="0" src="diagram/IntegerType.png" height="52" width="190" usemap="#IntegerType.map"><map name="IntegerType.map">
+         <area shape="rect" coords="93,17,141,49" href="#Digit" title="Digit"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#IntegerType" title="IntegerType" shape="rect">IntegerType</a>
+         ::= 'i' <a href="#Digit" title="Digit" shape="rect">Digit</a>+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#type" title="type">type</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Label">Label:</a></p>
+      <img border="0" src="diagram/Label.png" height="316" width="258">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#Label" title="Label" shape="rect">Label</a>    ::= [-a-zA-Z$._0-9]+ '::='</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#basicBlock" title="basicBlock">basicBlock</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Linkage">Linkage:</a></p>
+      <img border="0" src="diagram/Linkage.png" height="476" width="254">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#Linkage" title="Linkage" shape="rect">Linkage</a>  ::= 'private'
+           | 'internal'
+           | 'weak'
+           | 'weak_odr'
+           | 'linkonce'
+           | 'linkonce_odr'
+           | 'available_externally'
+           | 'appending'
+           | 'common'
+           | 'extern_weak'
+           | 'external'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="LocalIdentifier">LocalIdentifier:</a></p>
+      <img border="0" src="diagram/LocalIdentifier.png" height="702" width="380">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#LocalIdentifier" title="LocalIdentifier" shape="rect">LocalIdentifier</a>
+         ::= '%' [-a-zA-Z$._] [-a-zA-Z$._0-9]*
+           | '%' [0-9]+
+           | '%' '"' [^"]* '"'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#parameter" title="parameter">parameter</a></li>
+            
+            <li><a href="#statement" title="statement">statement</a></li>
+            
+            <li><a href="#type" title="type">type</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="MetadataIdentifier">MetadataIdentifier:</a></p>
+      <img border="0" src="diagram/MetadataIdentifier.png" height="554" width="322">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#MetadataIdentifier" title="MetadataIdentifier" shape="rect">MetadataIdentifier</a>
+         ::= '!' [-a-zA-Z$._] [-a-zA-Z$._0-9]*</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#index" title="index">index</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="DllStorageClass">DllStorageClass:</a></p>
+      <img border="0" src="diagram/DllStorageClass.png" height="80" width="176">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#DllStorageClass" title="DllStorageClass" shape="rect">DllStorageClass</a>
+         ::= 'dllimport'
+           | 'dllexport'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Scope">Scope:</a></p>
+      <img border="0" src="diagram/Scope.png" height="80" width="174">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#Scope" title="Scope" shape="rect">Scope</a>    ::= 'global'
+           | 'constant'</pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Visibility">Visibility:</a></p>
+      <img border="0" src="diagram/Visibility.png" height="124" width="180">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#Visibility" title="Visibility" shape="rect">Visibility</a>
+         ::= 'default'
+           | 'hidden'
+           | 'protected'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="String">String:</a></p>
+      <img border="0" src="diagram/String.png" height="68" width="286">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#String" title="String" shape="rect">String</a>   ::= '"' [^"]* '"'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#CharArrayLiteral" title="CharArrayLiteral">CharArrayLiteral</a></li>
+            
+            <li><a href="#functionAttribute" title="functionAttribute">functionAttribute</a></li>
+            
+            <li><a href="#operandBundle" title="operandBundle">operandBundle</a></li>
+            
+            <li><a href="#parameterAttribute" title="parameterAttribute">parameterAttribute</a></li>
+            
+            <li><a href="#returnAttribute" title="returnAttribute">returnAttribute</a></li>
+            
+            <li><a href="#section" title="section">section</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="ThreadLocal">ThreadLocal:</a></p>
+      <img border="0" src="diagram/ThreadLocal.png" height="124" width="204">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#ThreadLocal" title="ThreadLocal" shape="rect">ThreadLocal</a>
+         ::= 'localdynamic'
+           | 'initialexec'
+           | 'localexec'</pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="fpPredicate">fpPredicate:</a></p>
+      <img border="0" src="diagram/fpPredicate.png" height="696" width="150">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#fpPredicate" title="fpPredicate" shape="rect">fpPredicate</a>
+         ::= 'oeq'
+           | 'one'
+           | 'olt'
+           | 'ogt'
+           | 'ole'
+           | 'oge'
+           | 'ord'
+           | 'uno'
+           | 'ueq'
+           | 'une'
+           | 'ult'
+           | 'ugt'
+           | 'ule'
+           | 'uge'
+           | 'true'
+           | 'false'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="intPredicate">intPredicate:</a></p>
+      <img border="0" src="diagram/intPredicate.png" height="432" width="142">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#intPredicate" title="intPredicate" shape="rect">intPredicate</a>
+         ::= 'eq'
+           | 'ne'
+           | 'ugt'
+           | 'uge'
+           | 'ult'
+           | 'ule'
+           | 'sqt'
+           | 'sge'
+           | 'slt'
+           | 'sle'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="CharArrayLiteral">CharArrayLiteral:</a></p>
+      <img border="0" src="diagram/CharArrayLiteral.png" height="36" width="160" usemap="#CharArrayLiteral.map"><map name="CharArrayLiteral.map">
+         <area shape="rect" coords="75,1,131,33" href="#String" title="String"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#CharArrayLiteral" title="CharArrayLiteral" shape="rect">CharArrayLiteral</a>
+         ::= 'c' <a href="#String" title="String" shape="rect">String</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="ComdatIdentifier">ComdatIdentifier:</a></p>
+      <img border="0" src="diagram/ComdatIdentifier.png" height="554" width="326">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#ComdatIdentifier" title="ComdatIdentifier" shape="rect">ComdatIdentifier</a>
+         ::= '$' [-a-zA-Z$._] [-a-zA-Z$._0-9]*</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#comdat" title="comdat">comdat</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="FloatLiteral">FloatLiteral:</a></p>
+      <img border="0" src="diagram/FloatLiteral.png" height="256" width="230" usemap="#FloatLiteral.map"><map name="FloatLiteral.map">
+         <area shape="rect" coords="49,1,147,33" href="#HexFPLiteral" title="HexFPLiteral">
+         <area shape="rect" coords="49,45,163,77" href="#HexFP80Literal" title="HexFP80Literal">
+         <area shape="rect" coords="49,89,171,121" href="#HexFP128Literal" title="HexFP128Literal">
+         <area shape="rect" coords="49,133,181,165" href="#HexPPC128Literal" title="HexPPC128Literal">
+         <area shape="rect" coords="49,177,155,209" href="#HexHalfLiteral" title="HexHalfLiteral">
+         <area shape="rect" coords="49,221,171,253" href="#DecimalFPLiteral" title="DecimalFPLiteral"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#FloatLiteral" title="FloatLiteral" shape="rect">FloatLiteral</a>
+         ::= <a href="#HexFPLiteral" title="HexFPLiteral" shape="rect">HexFPLiteral</a>
+           | <a href="#HexFP80Literal" title="HexFP80Literal" shape="rect">HexFP80Literal</a>
+           | <a href="#HexFP128Literal" title="HexFP128Literal" shape="rect">HexFP128Literal</a>
+           | <a href="#HexPPC128Literal" title="HexPPC128Literal" shape="rect">HexPPC128Literal</a>
+           | <a href="#HexHalfLiteral" title="HexHalfLiteral" shape="rect">HexHalfLiteral</a>
+           | <a href="#DecimalFPLiteral" title="DecimalFPLiteral" shape="rect">DecimalFPLiteral</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="IntegerLiteral">IntegerLiteral:</a></p>
+      <img border="0" src="diagram/IntegerLiteral.png" height="128" width="332" usemap="#IntegerLiteral.map"><map name="IntegerLiteral.map">
+         <area shape="rect" coords="139,17,187,49" href="#Digit" title="Digit">
+         <area shape="rect" coords="227,17,303,49" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#IntegerLiteral" title="IntegerLiteral" shape="rect">IntegerLiteral</a>
+         ::= [+#x2D]? <a href="#Digit" title="Digit" shape="rect">Digit</a>+ <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionAttribute" title="functionAttribute">functionAttribute</a></li>
+            
+            <li><a href="#index" title="index">index</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#parameterAttribute" title="parameterAttribute">parameterAttribute</a></li>
+            
+            <li><a href="#returnAttribute" title="returnAttribute">returnAttribute</a></li>
+            
+            <li><a href="#type" title="type">type</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="Digit">Digit:</a></p>
+      <img border="0" src="diagram/Digit.png" height="36" width="118">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#Digit" title="Digit" shape="rect">Digit</a>    ::= [0-9]</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#AttributeGroupID" title="AttributeGroupID">AttributeGroupID</a></li>
+            
+            <li><a href="#CallingConvention" title="CallingConvention">CallingConvention</a></li>
+            
+            <li><a href="#DecimalFPLiteral" title="DecimalFPLiteral">DecimalFPLiteral</a></li>
+            
+            <li><a href="#IntegerLiteral" title="IntegerLiteral">IntegerLiteral</a></li>
+            
+            <li><a href="#IntegerType" title="IntegerType">IntegerType</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="FastMathsFlag">FastMathsFlag:</a></p>
+      <img border="0" src="diagram/FastMathsFlag.png" height="212" width="150">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#FastMathsFlag" title="FastMathsFlag" shape="rect">FastMathsFlag</a>
+         ::= 'fast'
+           | 'nnan'
+           | 'ninf'
+           | 'nsz'
+           | 'arcp'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="GlobalIdentifier">GlobalIdentifier:</a></p>
+      <img border="0" src="diagram/GlobalIdentifier.png" height="702" width="474" usemap="#GlobalIdentifier.map"><map name="GlobalIdentifier.map">
+         <area shape="rect" coords="349,651,425,683" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#GlobalIdentifier" title="GlobalIdentifier" shape="rect">GlobalIdentifier</a>
+         ::= '@' [-a-zA-Z$._] [-a-zA-Z$._0-9]*
+           | '@' [0-9]+
+           | '@' '"' [^"]* '"' <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#functionHeader" title="functionHeader">functionHeader</a></li>
+            
+            <li><a href="#instruction" title="instruction">instruction</a></li>
+            
+            <li><a href="#value" title="value">value</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="DecimalFPLiteral">DecimalFPLiteral:</a></p>
+      <img border="0" src="diagram/DecimalFPLiteral.png" height="162" width="810" usemap="#DecimalFPLiteral.map"><map name="DecimalFPLiteral.map">
+         <area shape="rect" coords="139,35,187,67" href="#Digit" title="Digit">
+         <area shape="rect" coords="291,1,339,33" href="#Digit" title="Digit">
+         <area shape="rect" coords="597,35,645,67" href="#Digit" title="Digit">
+         <area shape="rect" coords="705,35,781,67" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#DecimalFPLiteral" title="DecimalFPLiteral" shape="rect">DecimalFPLiteral</a>
+         ::= [-+]? <a href="#Digit" title="Digit" shape="rect">Digit</a>+ [.] <a href="#Digit" title="Digit" shape="rect">Digit</a>* ( [eE] [-+]? <a href="#Digit" title="Digit" shape="rect">Digit</a>+ )? <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HexFPLiteral">HexFPLiteral:</a></p>
+      <img border="0" src="diagram/HexFPLiteral.png" height="140" width="350" usemap="#HexFPLiteral.map"><map name="HexFPLiteral.map">
+         <area shape="rect" coords="245,17,321,49" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#HexFPLiteral" title="HexFPLiteral" shape="rect">HexFPLiteral</a>
+         ::= '0x' [0-9A-Fa-f]+ <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HexFP80Literal">HexFP80Literal:</a></p>
+      <img border="0" src="diagram/HexFP80Literal.png" height="140" width="360" usemap="#HexFP80Literal.map"><map name="HexFP80Literal.map">
+         <area shape="rect" coords="255,17,331,49" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#HexFP80Literal" title="HexFP80Literal" shape="rect">HexFP80Literal</a>
+         ::= '0xK' [0-9A-Fa-f]+ <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HexFP128Literal">HexFP128Literal:</a></p>
+      <img border="0" src="diagram/HexFP128Literal.png" height="140" width="358" usemap="#HexFP128Literal.map"><map name="HexFP128Literal.map">
+         <area shape="rect" coords="253,17,329,49" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#HexFP128Literal" title="HexFP128Literal" shape="rect">HexFP128Literal</a>
+         ::= '0xL' [0-9A-Fa-f]+ <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HexPPC128Literal">HexPPC128Literal:</a></p>
+      <img border="0" src="diagram/HexPPC128Literal.png" height="140" width="362" usemap="#HexPPC128Literal.map"><map name="HexPPC128Literal.map">
+         <area shape="rect" coords="257,17,333,49" href="#fragment" title="fragment"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#HexPPC128Literal" title="HexPPC128Literal" shape="rect">HexPPC128Literal</a>
+         ::= '0xM' [0-9A-Fa-f]+ <a href="#fragment" title="fragment" shape="rect">fragment</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="HexHalfLiteral">HexHalfLiteral:</a></p>
+      <img border="0" src="diagram/HexHalfLiteral.png" height="140" width="264">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#HexHalfLiteral" title="HexHalfLiteral" shape="rect">HexHalfLiteral</a>
+         ::= '0xH' [0-9A-Fa-f]+</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#FloatLiteral" title="FloatLiteral">FloatLiteral</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="WS">WS:</a></p>
+      <img border="0" src="diagram/WS.png" height="316" width="166">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#WS" title="WS" shape="rect">WS</a>       ::= [ \t\n\r]+</pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="COMMENT">COMMENT:</a></p>
+      <img border="0" src="diagram/COMMENT.png" height="202" width="166">
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#COMMENT" title="COMMENT" shape="rect">COMMENT</a>  ::= ''^ [\r\n]*</pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><hr>
+      
+      <p>
+         
+         <table border="0" class="signature">
+            
+            <tr>
+               
+               <td style="width: 100%">&nbsp;</td>
+               
+               <td valign="top">
+                  
+                  <nobr class="signature">... generated by <a name="Railroad-Diagram-Generator" class="signature" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">Railroad Diagram Generator</a></nobr>
+                  
+               </td>
+               
+               <td><a name="Railroad-Diagram-Generator" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">
+                     <img border="0" src="diagram/Railroad-Diagram-Generator.png" height="16" width="16"></a></td>
+               
+            </tr>
+            
+         </table>
+         
+      </p>
+      
+   </body>
+</html>
