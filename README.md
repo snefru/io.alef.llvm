@@ -2,7 +2,7 @@
 
 ##Overview
 
-[LLVM Railroad Diagram](http://snefru.github.io/io.alef.llvm/diagram.xhtml)
+[LLVM Railroad Diagram](http://snefru.github.io/io.alef.llvm/syntax-diagrams.xhtml)
 
 ##References
 

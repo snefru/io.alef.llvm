@@ -13,7 +13,7 @@ AtomicOrdering      :   'unordered'
 argumentList        :   typedValue (',' typedValue)*;
 
 
-basicBlock          :   Label? (statement)+; //todo instruction*
+basicBlock          :   Label? (statement)+; //todo statement*
 
 clause              :   'catch' typedValue
                     |   'filter' typedValue
@@ -361,7 +361,7 @@ Linkage             :   'private'
 
 LocalIdentifier     :   '%'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '%'[0-9]+
-                    |   '%''"'(~'"')* '"'
+                    |   '%'String
                     ;
 
 MetadataIdentifier  :   '!'[-a-zA-Z$._][-a-zA-Z$._0-9]*;
@@ -398,8 +398,8 @@ fpPredicate         :   'oeq'
                     |   'ugt'
                     |   'ule'
                     |   'uge'
-                    |   'true'      //todo review clash with value
-                    |   'false'     //todo review clash with value
+                    |   'true'
+                    |   'false'
                     ;
 
 intPredicate        :   'eq'
@@ -441,7 +441,7 @@ FastMathsFlag       :   'fast'
 
 GlobalIdentifier    :   '@'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '@'[0-9]+
-                    |   '@''"'(~'"')* '"'
+                    |   '@'String
                     ;
 
 fragment
