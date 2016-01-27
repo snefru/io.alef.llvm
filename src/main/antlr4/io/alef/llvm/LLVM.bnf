@@ -11,7 +11,7 @@ AtomicOrdering      ::=   'unordered'
 argumentList        ::=   typedValue (',' typedValue)*
 
 
-basicBlock          ::=   Label? (statement)+ 
+basicBlock          ::=   Label? (statement)+ //todo instruction*
 
 clause              ::=   'catch' typedValue
                     |   'filter' typedValue
@@ -19,7 +19,7 @@ clause              ::=   'catch' typedValue
 
 comdat              ::=   ',' 'comdat' ( '(' ComdatIdentifier ')' )?
 
-entity              ::=   'define' functionHeader functionBody 
+entity              ::=   'define' functionHeader functionBody //todo functionMetadata
                     |   'declare' functionHeader
                     
 
@@ -294,7 +294,12 @@ value               ::=   GlobalIdentifier
                     |   'and' '(' typedValue ',' typedValue  ')'
                     |   'or' '(' typedValue ',' typedValue  ')'
                     |   'xor' '(' typedValue ',' typedValue  ')'
-                    //todo
+
+                    |   'getelementptr' 'inbounds'? '(' type ',' typedValue (',' typedValue)* ')'
+                    |   'shufflevector' '(' typedValue ',' typedValue ',' typedValue ')'
+                    |   'insertelement' '(' typedValue ',' typedValue ',' typedValue ')'
+                    |   'extractelement' '(' typedValue ',' typedValue ')'
+                    |   'select' '(' typedValue ',' typedValue ','typedValue ')'
                     
 
 index               ::=   IntegerLiteral
@@ -337,7 +342,7 @@ CallingConvention   ::=   'ccc'
 
 IntegerType         ::=   'i'Digit+
 
-Label               ::=   [-a-zA-Z$._0-9]+ '::='
+Label               ::=   [-a-zA-Z$._0-9]+
 
 Linkage             ::=   'private'
                     |   'internal'
@@ -354,7 +359,7 @@ Linkage             ::=   'private'
 
 LocalIdentifier     ::=   '%'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '%'[0-9]+
-                    |   '%''"'[^"]* '"'
+                    |   '%''"'(^'"')* '"'
                     
 
 MetadataIdentifier  ::=   '!'[-a-zA-Z$._][-a-zA-Z$._0-9]*
@@ -370,7 +375,7 @@ Visibility          ::=   'default'
                     |   'protected'
                     
 
-String              ::=   '"'[^"]*'"'
+String              ::=   '"'(^'"')*'"'
 
 ThreadLocal         ::=   'localdynamic'
                     |   'initialexec'
@@ -434,7 +439,7 @@ FastMathsFlag       ::=   'fast'
 
 GlobalIdentifier    ::=   '@'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '@'[0-9]+
-                    |   '@''"'[^"]* '"'
+                    |   '@''"'(^'"')* '"'
                     
 
 fragment
@@ -457,4 +462,4 @@ HexHalfLiteral      ::=   '0xH'[0-9A-Fa-f]+
 
 WS                  ::=   [ \t\n\r]+
 
-COMMENT             ::=   '' ^[\r\n]*
+COMMENT             ::=   ';' ^[\r\n]*

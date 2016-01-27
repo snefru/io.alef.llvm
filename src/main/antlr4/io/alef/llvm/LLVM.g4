@@ -296,7 +296,12 @@ value               :   GlobalIdentifier
                     |   'and' '(' typedValue ',' typedValue  ')'
                     |   'or' '(' typedValue ',' typedValue  ')'
                     |   'xor' '(' typedValue ',' typedValue  ')'
-                    //todo
+
+                    |   'getelementptr' 'inbounds'? '(' type ',' typedValue (',' typedValue)* ')'
+                    |   'shufflevector' '(' typedValue ',' typedValue ',' typedValue ')'
+                    |   'insertelement' '(' typedValue ',' typedValue ',' typedValue ')'
+                    |   'extractelement' '(' typedValue ',' typedValue ')'
+                    |   'select' '(' typedValue ',' typedValue ','typedValue ')'
                     ;
 
 index               :   IntegerLiteral
