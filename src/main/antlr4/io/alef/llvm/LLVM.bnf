@@ -359,7 +359,7 @@ Linkage             ::=   'private'
 
 LocalIdentifier     ::=   '%'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '%'[0-9]+
-                    |   '%''"'(^'"')* '"'
+                    |   '%''"'STRING_CONTENT * '"'
                     
 
 MetadataIdentifier  ::=   '!'[-a-zA-Z$._][-a-zA-Z$._0-9]*
@@ -375,7 +375,7 @@ Visibility          ::=   'default'
                     |   'protected'
                     
 
-String              ::=   '"'(^'"')*'"'
+String              ::=   '"'STRING_CONTENT *'"'
 
 ThreadLocal         ::=   'localdynamic'
                     |   'initialexec'
@@ -439,7 +439,7 @@ FastMathsFlag       ::=   'fast'
 
 GlobalIdentifier    ::=   '@'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '@'[0-9]+
-                    |   '@''"'(^'"')* '"'
+                    |   '@''"'STRING_CONTENT * '"'
                     
 
 fragment
@@ -463,3 +463,6 @@ HexHalfLiteral      ::=   '0xH'[0-9A-Fa-f]+
 WS                  ::=   [ \t\n\r]+
 
 COMMENT             ::=   ';' ^[\r\n]*
+
+fragment
+STRING_CONTENT      ::=   [^'"']
