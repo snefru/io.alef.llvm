@@ -18,11 +18,11 @@ define void @invoke() {
     invoke void @__cxa_throw(i8* %exception.i, i8* bitcast (%0* @_ZTI1A to i8*), i8* bitcast (void (%struct.A*)* @_ZN1AD1Ev to i8*)) noreturn
           to label %.noexc unwind label %lpad
 
-    ;invoke %struct.wxStringBase* @_ZN12wxStringBaseaSEPKw( %struct.wxStringBase* null, i32* getelementptr ([5 x i32], [5 x i32]* @.str89, i32 0, i32 0) )
-    ;			to label %bb3314 unwind label %lpad		; <%struct.wxStringBase*> [#uses=0]
+    invoke %struct.wxStringBase* @_ZN12wxStringBaseaSEPKw( %struct.wxStringBase* null, i32* getelementptr ([5 x i32], [5 x i32]* @.str89, i32 0, i32 0) )
+    			to label %bb3314 unwind label %lpad		; <%struct.wxStringBase*> [#uses=0]
 
 
-      %call177 = invoke zeroext i1 undef(%"class.Foam::primitiveMesh.135"* undef, i1 zeroext true, %"class.Foam::HashSet.127"* undef)
-              to label %invoke.cont176 unwind label %lpad175
+;      %call177 = invoke zeroext i1 undef(%"class.Foam::primitiveMesh.135"* undef, i1 zeroext true, %"class.Foam::HashSet.127"* undef)
+;              to label %invoke.cont176 unwind label %lpad175
 
 }
