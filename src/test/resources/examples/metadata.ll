@@ -1,0 +1,12 @@
+!llvm.module.flags = !{!0, !1, !2, !4, !5, !6}
+;!0 = distinct !DISubprogram(name: "main", linkageName: "main", line: 2, isLocal: false, isDefinition: true, virtualIndex: 6, isOptimized: false, scope: !1)
+;!1 = distinct !DICompileUnit(language: DW_LANG_C99, producer: "ellcc 0.1.0", isOptimized: true, emissionKind: 0, file: !2)
+;!2 = !DIFile(filename: "a.c", directory: "/home/rich/ellcc/test/source")
+!10 = !DIDerivedType(tag: DW_TAG_pointer_type, size: 64, align: 64, baseType: !11)
+!13 = !DIBasicType(tag: DW_TAG_base_type, name: "char", size: 8, align: 8, encoding: DW_ATE_signed_char)
+!14 = !DILocalVariable(name: "argc", line: 4, arg: 1, scope: !5, file: !6, type: !9)
+!15 = !DILocation(line: 4, scope: !5)
+!0 = !{i32 2, !"Debug Info Version", i32 42}
+!1 = distinct !DICompileUnit(language: DW_LANG_C99, producer: "clang", isOptimized: false, file: !"I AM UNEXPECTED!")
+!2 = !{!"b.c", !""}
+!3 = !{}

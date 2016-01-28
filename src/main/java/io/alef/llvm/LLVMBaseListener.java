@@ -28,6 +28,30 @@ public class LLVMBaseListener implements LLVMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAlignment(LLVMParser.AlignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAlignment(LLVMParser.AlignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArgument(LLVMParser.ArgumentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArgument(LLVMParser.ArgumentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterArgumentList(LLVMParser.ArgumentListContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -83,6 +107,30 @@ public class LLVMBaseListener implements LLVMListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitEntity(LLVMParser.EntityContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMetadata(LLVMParser.MetadataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMetadata(LLVMParser.MetadataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddressSpace(LLVMParser.AddressSpaceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddressSpace(LLVMParser.AddressSpaceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

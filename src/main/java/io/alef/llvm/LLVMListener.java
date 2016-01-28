@@ -18,6 +18,26 @@ public interface LLVMListener extends ParseTreeListener {
 	 */
 	void exitModule(LLVMParser.ModuleContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LLVMParser#alignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterAlignment(LLVMParser.AlignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LLVMParser#alignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitAlignment(LLVMParser.AlignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LLVMParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgument(LLVMParser.ArgumentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LLVMParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgument(LLVMParser.ArgumentContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LLVMParser#argumentList}.
 	 * @param ctx the parse tree
 	 */
@@ -67,6 +87,26 @@ public interface LLVMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEntity(LLVMParser.EntityContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LLVMParser#metadata}.
+	 * @param ctx the parse tree
+	 */
+	void enterMetadata(LLVMParser.MetadataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LLVMParser#metadata}.
+	 * @param ctx the parse tree
+	 */
+	void exitMetadata(LLVMParser.MetadataContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LLVMParser#addressSpace}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddressSpace(LLVMParser.AddressSpaceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LLVMParser#addressSpace}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddressSpace(LLVMParser.AddressSpaceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LLVMParser#functionAttribute}.
 	 * @param ctx the parse tree

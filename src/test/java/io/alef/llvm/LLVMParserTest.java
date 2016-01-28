@@ -1,5 +1,7 @@
 package io.alef.llvm;
 
+import com.google.common.base.Predicate;
+import com.google.common.io.Files;
 import io.alef.llvm.LLVMParser.ModuleContext;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.BailErrorStrategy;
@@ -12,12 +14,16 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class LLVMParserTest {
 
+    public static final Predicate<File> FILE = new Predicate<File>() {
+        public boolean apply(final File file) {
+            return file.isFile() && file.getName().endsWith(".ll");
+        }
+    };
     private final File file;
 
     public LLVMParserTest(final File file) {
@@ -26,7 +32,7 @@ public class LLVMParserTest {
 
     @Parameters
     public static Collection<File> data() {
-        return Arrays.asList(new File(LLVMParserTest.class.getResource("/examples").getFile()).listFiles());
+        return Files.fileTreeTraverser().preOrderTraversal(new File(LLVMParserTest.class.getResource("/examples").getFile())).filter(FILE).toList();
     }
 
     @Test

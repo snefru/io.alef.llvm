@@ -1,6 +1,8 @@
 grammar LLVM;
 
-module              :   entity+;
+module              :   entity*;
+
+alignment           :   'align' IntegerLiteral;
 
 AtomicOrdering      :   'unordered'
                     |   'monotonic'
@@ -10,26 +12,72 @@ AtomicOrdering      :   'unordered'
                     |   'seq_cst'
                     ;
 
-argumentList        :   typedValue (',' typedValue)*;
+argument            :   type parameterAttribute* MetadataIdentifier  //todo review
+                    |   type parameterAttribute* value
+                    ;
 
 
-basicBlock          :   Label? (statement)+; //todo statement*
+argumentList        :   argument(',' argument)*;
+
+
+basicBlock          :   (Label)? (statement)+
+                    |   Label
+                    ;
 
 clause              :   'catch' typedValue
                     |   'filter' typedValue
                     ;
 
-comdat              :   ',' 'comdat' ( '(' ComdatIdentifier ')' )?;
+comdat              :   'comdat' ( '(' ComdatIdentifier ')' )?;
 
 entity              :   'define' functionHeader functionBody //todo functionMetadata
                     |   'declare' functionHeader
+                    |   'module' 'asm' String
+                    |   'target' 'triple' '=' String
+                    |   'target' 'datalayout' '=' String
+                    |   'deplibs' '=' '[' ']'
+                    |   'deplibs' '=' '[' String (',' String)* ']'
+                    |   LocalIdentifier '=' 'type' type
+                    |   GlobalIdentifier '='    Linkage?
+                                                Visibility?
+                                                DllStorageClass?
+                                                ('thread_local' ('(' ThreadLocalStorage ')')?)?
+                                                UnamedAddress?
+                                                addressSpace?
+                                                'externally_initialized'?
+                                                GlobalType
+                                                type
+                                                value?
+                                                (',' section)?
+                                                (',' comdat)?
+                                                (',' alignment)?
+                    |   GlobalIdentifier '='    Linkage?
+                                                Visibility?
+                                                DllStorageClass?
+                                                ('thread_local' ('(' ThreadLocalStorage ')')?)?
+                                                UnamedAddress?
+                                                'alias'
+                                                typedValue
+                    |   ComdatIdentifier '=' 'comdat' SelectionKind
+                    |   MetadataIdentifier '=' 'distinct'? metadata
+                    |   'attributes' AttributeGroupID '=' '{' functionAttribute* '}'
                     ;
+
+metadata            :   MetadataIdentifier
+                    |   '!'String
+                    |   value
+                    |   typedValue
+                    |   '!''{' (metadata (',' metadata)*)? '}'
+                    ;
+
+addressSpace        :   'addrspace' '(' IntegerLiteral ')';
 
 functionAttribute   :   AttributeGroupID ('{' functionAttribute* '}')?
                     |   'alignstack' IntegerLiteral
                     |   'alignstack' '=' IntegerLiteral  //attribute group format
                     |   'align' IntegerLiteral
                     |   'align' '=' IntegerLiteral      //attribute group format
+                    |   String '=' String
                     |   'alwaysinline'
                     |   'builtin'
                     |   'cold'
@@ -82,9 +130,21 @@ functionHeader      :   Linkage?
                         functionAttribute*
                         section?
                         comdat?
+                        alignment?
+                        ('gc' String)?
+                        ('prefix' typedValue)?
+                        ('prologue' typedValue)?
+                        ('personality' typedValue)?
+                        (MetadataIdentifier MetadataIdentifier)*
+
                     ;
 
 functionBody        :   '{' basicBlock+ '}'; //todo useListOrderDirective*
+
+
+GlobalType          :   'global'
+                    |   'constant'
+                    ;
 
 
 instruction         :   'ret' typedValue
@@ -159,13 +219,17 @@ instruction         :   'ret' typedValue
                     |   'load' 'atomic' 'volatile'? type ',' typedValue 'singlethread'? AtomicOrdering  (',' 'align' IntegerLiteral)?
                     |   'store' 'volatile'? typedValue ',' typedValue (',' 'align' IntegerLiteral)?
                     |   'store' 'atomic' 'volatile'? typedValue ',' typedValue 'singlethread'? AtomicOrdering  (',' 'align' IntegerLiteral)?
-                    |   'cmpxchg' 'weak'? 'volatile'? typedValue ',' typedValue ',' typedValue 'singlethread'? AtomicOrdering AtomicOrdering
+                    |   'cmpxchg' Weak? 'volatile'? typedValue ',' typedValue ',' typedValue 'singlethread'? AtomicOrdering AtomicOrdering
                     |   'atomicrmw' 'volatile'? operation typedValue ',' typedValue 'singlethread'? AtomicOrdering
                     |   'fence' 'singlethread'? AtomicOrdering
                     |   'getelementptr' 'inbounds'? type ',' typedValue (',' typedValue)*
                     |   'extractvalue' typedValue (',' index)+
                     |   'insertvalue' typedValue ',' typedValue(',' index)+
+                    |   'unreachable'
                     ;
+
+//nameValue           :   Identifier ':' value
+//nameValue           |   Identifier ':' MetadataIdentifier;
 
 operation           :   'xchg'
                     |   'add'
@@ -218,9 +282,16 @@ returnAttribute     :   String
                     |   'zeroext'
                     ;
 
-section             :   ',' 'section' String;
+section             :   'section' String;
 
-statement           :   (LocalIdentifier '=')? instruction;
+SelectionKind       :   'any'
+                    |   'exactmatch'
+                    |   'largest'
+                    |    'noduplicates'
+                    |    'samesize'
+                    ;
+
+statement           :   (LocalIdentifier '=')? instruction (',' MetadataIdentifier metadata)*;
 
 type                :   IntegerType
                     |   'half'
@@ -230,17 +301,18 @@ type                :   IntegerType
                     |   'x86_fp80'
                     |   'ppc_fp128'
                     |   'x86_mmx'
+                    |   type 'addrspace' '(' IntegerLiteral ')' '*'
                     |   type '*'
                     |   '<' IntegerLiteral 'x' type '>'
                     |   'label'
                     |   'token'
                     |   'metadata'
                     |   '[' IntegerLiteral 'x' type ']'
-                    |   '{' type (',' type)* '}'
-                    |   '<' '{'  type (',' type)* '}' '>'
+                    |   '{' (type (',' type)*)? '}'
+                    |   '<' ('{'  type (',' type)* '}')? '>'
                     |   'opaque'
                     |   'void'
-                    |   type '(' (type (',' type)*)? '...'? ')'
+                    |   type '(' (type ',')* (type|'...')? ')'
                     |   LocalIdentifier
                     ;
 
@@ -278,11 +350,12 @@ value               :   GlobalIdentifier
                     |   'insertvalue' '(' value ',' value (',' index )+ ')'
                     |   'icmp' intPredicate '(' typedValue ',' typedValue ')'
                     |   'fcmp' fpPredicate '(' typedValue ',' typedValue ')'
-                    |   'add' '(' typedValue ',' typedValue  ')'
                     |   'fadd' '(' typedValue ',' typedValue  ')'
-                    |   'sub' '(' typedValue ',' typedValue  ')'
                     |   'fsub' '(' typedValue ',' typedValue  ')'
-                    |   'mul' '(' typedValue ',' typedValue  ')'
+                    |   'add' 'nuw'? 'nsw'? '(' typedValue ',' typedValue  ')'
+                    |   'sub' 'nuw'? 'nsw'? '(' typedValue ',' typedValue  ')'
+                    |   'mul' 'nuw'? 'nsw'? '(' typedValue ',' typedValue  ')'
+                    |   'shl' 'nuw'? 'nsw'? '(' typedValue ',' typedValue  ')'
                     |   'fmul' '(' typedValue ',' typedValue  ')'
                     |   'udiv' '(' typedValue ',' typedValue  ')'
                     |   'sdiv' '(' typedValue ',' typedValue  ')'
@@ -290,7 +363,6 @@ value               :   GlobalIdentifier
                     |   'urem' '(' typedValue ',' typedValue  ')'
                     |   'srem' '(' typedValue ',' typedValue  ')'
                     |   'frem' '(' typedValue ',' typedValue  ')'
-                    |   'shl' '(' typedValue ',' typedValue  ')'
                     |   'lshl' '(' typedValue ',' typedValue  ')'
                     |   'ashr' '(' typedValue ',' typedValue  ')'
                     |   'and' '(' typedValue ',' typedValue  ')'
@@ -344,12 +416,11 @@ CallingConvention   :   'ccc'
 
 IntegerType         :   'i'Digit+;
 
-Label               :   [-a-zA-Z$._0-9]+ ':';
 
 Linkage             :   'private'
                     |   'internal'
-                    |   'weak'
                     |   'weak_odr'
+                    |   Weak
                     |   'linkonce'
                     |   'linkonce_odr'
                     |   'available_externally'
@@ -359,18 +430,9 @@ Linkage             :   'private'
                     |   'external'
                     ;
 
-LocalIdentifier     :   '%'[-a-zA-Z$._][-a-zA-Z$._0-9]*
-                    |   '%'[0-9]+
-                    |   '%'String
-                    ;
-
-MetadataIdentifier  :   '!'[-a-zA-Z$._][-a-zA-Z$._0-9]*;
-
 DllStorageClass     :   'dllimport'
                     |   'dllexport'
                     ;
-
-Scope               :   ('global'|'constant'); //todo review name
 
 Visibility          :   'default'
                     |   'hidden'
@@ -379,7 +441,7 @@ Visibility          :   'default'
 
 String              :   '"'(~'"')*'"';
 
-ThreadLocal         :   'localdynamic'
+ThreadLocalStorage  :   'localdynamic'
                     |   'initialexec'
                     |   'localexec'
                     ;
@@ -408,15 +470,15 @@ intPredicate        :   'eq'
                     |   'uge'
                     |   'ult'
                     |   'ule'
-                    |   'sqt'
+                    |   'sgt'
                     |   'sge'
                     |   'slt'
                     |   'sle'
                     ;
 
+
 CharArrayLiteral    :   'c'String;
 
-ComdatIdentifier    :   '$'[-a-zA-Z$._][-a-zA-Z$._0-9]*;
 
 FloatLiteral        :   HexFPLiteral
                     |   HexFP80Literal
@@ -428,7 +490,20 @@ FloatLiteral        :   HexFPLiteral
 
 IntegerLiteral      :   [+-]?Digit+; //todo review - usage implies -ve numbers are allowed in contexts where they are not valid
 
-//IntegerLiteral      :   Digit+;
+
+Label               :   Identifier ':';
+
+LocalIdentifier     :   '%'Identifier
+                    |   '%'Digit+
+                    |   '%'String
+                    ;
+
+MetadataIdentifier  :   '!'Identifier
+                    |   '!'Digit+
+                    ;
+
+ComdatIdentifier    :   '$'[-a-zA-Z$._][-a-zA-Z$._0-9]*;
+
 
 fragment Digit      :	[0-9];
 
@@ -443,6 +518,10 @@ GlobalIdentifier    :   '@'[-a-zA-Z$._][-a-zA-Z$._0-9]*
                     |   '@'[0-9]+
                     |   '@'String
                     ;
+
+Weak                :   'weak';
+fragment
+Identifier          :   [-a-zA-Z$._][-a-zA-Z$._0-9]*;
 
 fragment
 DecimalFPLiteral    :   [-+]?Digit+[.]Digit*([eE][-+]?Digit+)?;

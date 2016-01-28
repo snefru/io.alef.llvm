@@ -17,6 +17,18 @@ public interface LLVMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitModule(LLVMParser.ModuleContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LLVMParser#alignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAlignment(LLVMParser.AlignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LLVMParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgument(LLVMParser.ArgumentContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LLVMParser#argumentList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -46,6 +58,18 @@ public interface LLVMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEntity(LLVMParser.EntityContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LLVMParser#metadata}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMetadata(LLVMParser.MetadataContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LLVMParser#addressSpace}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddressSpace(LLVMParser.AddressSpaceContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LLVMParser#functionAttribute}.
 	 * @param ctx the parse tree
